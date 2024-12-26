@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on win32)" generated="2024-12-26T16:02:25.647217" rpa="false" schemaversion="5">
+<suite id="s1" name="RestfulBookingSuite" source="C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Tests\RestfulBookingSuite.robot">
+<test id="s1-t1" name="TC Update Booking Data" line="39">
+<kw name="Create Booking Using Json Data" owner="RestfulBookingKeywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-12-26T16:02:26.393799" level="INFO">Creating Session using : alias=booker, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>booker</arg>
+<arg>url=${restfulBooker_baseUrl}</arg>
+<arg>headers=${headers}</arg>
+<arg>disable_warnings=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-12-26T16:02:26.393799" elapsed="0.001522"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-12-26T16:02:27.163530" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
+ path_url=/booking 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '180'} 
+ body=b'{"firstname": "Marwa", "lastname": "Sami", "totalprice": 234, "depositpaid": true, "bookingdates": {"checkin": "2023-09-20", "checkout": "2024-12-15"}, "additionalneeds": "Dinner"}' 
+ </msg>
+<msg time="2024-12-26T16:02:27.163530" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735221749&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=GcFrgdfr8fF37vzFzc5YHDoNfDdpcU8cYC%2FB2WJ0Cuk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735221749&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=GcFrgdfr8fF37vzFzc5YHDoNfDdpcU8cYC%2FB2WJ0Cuk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '194', 'Etag': 'W/"c2-1yuM+GItUUfASlvrBJkOAnatsPc"', 'Date': 'Thu, 26 Dec 2024 14:02:29 GMT', 'Via': '1.1 vegur'} 
+ body={"bookingid":711,"booking":{"firstname":"Marwa","lastname":"Sami","totalprice":234,"depositpaid":true,"bookingdates":{"checkin":"2023-09-20","checkout":"2024-12-15"},"additionalneeds":"Dinner"}} 
+ </msg>
+<msg time="2024-12-26T16:02:27.163530" level="INFO">${post_response} = &lt;Response [200]&gt;</msg>
+<var>${post_response}</var>
+<arg>booker</arg>
+<arg>/booking</arg>
+<arg>json=${booking}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-12-26T16:02:26.395321" elapsed="0.768209"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.164521" elapsed="0.000000"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-12-26T16:02:27.302064" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/711 
+ path_url=/booking/711 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
+ body=None 
+ </msg>
+<msg time="2024-12-26T16:02:27.302064" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/711 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735221749&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=GcFrgdfr8fF37vzFzc5YHDoNfDdpcU8cYC%2FB2WJ0Cuk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735221749&amp;sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&amp;s=GcFrgdfr8fF37vzFzc5YHDoNfDdpcU8cYC%2FB2WJ0Cuk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '166', 'Etag': 'W/"a6-lPapVk2H7zffQa9pAWfpRt+9RHc"', 'Date': 'Thu, 26 Dec 2024 14:02:29 GMT', 'Via': '1.1 vegur'} 
+ body={"firstname":"Marwa","lastname":"Sami","totalprice":234,"depositpaid":true,"bookingdates":{"checkin":"2023-09-20","checkout":"2024-12-15"},"additionalneeds":"Dinner"} 
+ </msg>
+<msg time="2024-12-26T16:02:27.303048" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>booker</arg>
+<arg>/booking/${post_response.json()}[bookingid]</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.164521" elapsed="0.138527"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[lastname]</arg>
+<arg>${booking}[lastname]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.303048" elapsed="0.001032"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[firstname]</arg>
+<arg>${booking}[firstname]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.304080" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${response.json()}[totalprice]</arg>
+<arg>${booking}[totalprice]</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.304080" elapsed="0.001576"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${response.json()}[depositpaid]</arg>
+<arg>${booking}[depositpaid]</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.305656" elapsed="0.001014"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[bookingdates][checkin]</arg>
+<arg>${booking}[bookingdates][checkin]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.306670" elapsed="0.000998"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[bookingdates][checkout]</arg>
+<arg>${booking}[bookingdates][checkout]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.307668" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.json()}[additionalneeds]</arg>
+<arg>${booking}[additionalneeds]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.307668" elapsed="0.001066"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-12-26T16:02:27.308734" level="INFO">${booking_Id} = 711</msg>
+<var>${booking_Id}</var>
+<arg>${post_response.json()}[bookingid]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.308734" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-12-26T16:02:27.308734" level="INFO">Successful getting posted data that's booking id is: 711</msg>
+<arg>Successful getting posted data that\'s booking id is: ${booking_Id}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-12-26T16:02:27.308734" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${get_response}</value>
+<status status="PASS" start="2024-12-26T16:02:27.308734" elapsed="0.000000"/>
+</return>
+<return>
+<value>${booking_Id}</value>
+<status status="NOT RUN" start="2024-12-26T16:02:27.309689" elapsed="0.000000"/>
+</return>
+<msg time="2024-12-26T16:02:27.309689" level="FAIL">Replacing variables from keyword return value failed: Variable '${get_response}' not found. Did you mean:
+    ${response}</msg>
+<var>${booking_Id}</var>
+<status status="FAIL" start="2024-12-26T16:02:26.393799" elapsed="0.915890">Replacing variables from keyword return value failed: Variable '${get_response}' not found. Did you mean:
+    ${response}</status>
+</kw>
+<kw name="Update-Put Booking Data" owner="RestfulBookingKeywords">
+<arg>${booking_Id}</arg>
+<arg>"9/12/1010"</arg>
+<arg>"9/13/2010" "Waheed"</arg>
+<arg>"Ahmed"</arg>
+<arg>9998</arg>
+<arg>"True"</arg>
+<arg>"Super"</arg>
+<status status="NOT RUN" start="2024-12-26T16:02:27.309689" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-12-26T16:02:26.392773" elapsed="0.917965">Replacing variables from keyword return value failed: Variable '${get_response}' not found. Did you mean:
+    ${response}</status>
+</test>
+<status status="FAIL" start="2024-12-26T16:02:25.663747" elapsed="1.646991"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="RestfulBookingSuite">RestfulBookingSuite</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-26T16:02:25.686585" level="ERROR">Error in file 'C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Resources\Keywords\RestfulBookingKeywords.robot' on line 8: Setting 'Test Template' is not allowed in resource file.</msg>
+<msg time="2024-12-26T16:02:25.688590" level="WARN">Error in file 'C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Resources\Keywords\RestfulBookingKeywords.robot' on line 10: Singular section headers like '*** comment' are deprecated. Use plural format like '*** Comments ***' instead.</msg>
+<msg time="2024-12-26T16:02:25.688590" level="WARN">Error in file 'C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Resources\Keywords\RestfulBookingKeywords.robot' on line 21: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-12-26T16:02:25.688590" level="WARN">Error in file 'C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Resources\Keywords\RestfulBookingKeywords.robot' on line 56: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-12-26T16:02:25.688590" level="WARN">Error in file 'C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Resources\Keywords\RestfulBookingKeywords.robot' on line 84: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-12-26T16:02:26.391772" level="ERROR">[ DataDriver ] Error in robot file:
+  File "C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Tests\RestfulBookingSuite.robot", line 0</msg>
+<msg time="2024-12-26T16:02:26.391772" level="ERROR">In source file:
+  File "C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Tests\..\Resources\TestData\BookingData.xlsx", line 0</msg>
+<msg time="2024-12-26T16:02:26.392773" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: AttributeError: No "Test Template" keyword found for first test case.</msg>
+</errors>
+</robot>

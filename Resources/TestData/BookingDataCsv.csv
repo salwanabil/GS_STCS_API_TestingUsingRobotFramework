@@ -1,0 +1,4 @@
+${firstname};${lastname};${totalprice};${depositpaid};${checkin};${checkout};${additionalneeds};
+Nesma;Samy;750;False;1/12/2010;15/1/2010;Super
+Loay;Mamdouh;245;True;6/16/2024;8/1/2024;Lanuch
+Ahmed;Ali;700;True;30/1/2011;15/2/20101;true

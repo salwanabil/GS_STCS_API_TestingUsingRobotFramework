@@ -1,0 +1,24 @@
+==============================================================================
+Suites                                                                        
+==============================================================================
+Suites.DataDrivn RestfulBooking-CSV                                           
+==============================================================================
+Create Booking With CSV using firstname: Nesma ,lastname: Samy , t... b'{"bookingid":42,"booking":{"firstname":"Nesma","lastname":"Samy","totalprice":750,"depositpaid":true,"bookingdates":{"checkin":"2010-01-12","checkout":"0NaN-aN-aN"},"additionalneeds":"Super"}}'
+{"bookingid":42,"booking":{"firstname":"Nesma","lastname":"Samy","totalprice":750,"depositpaid":true,"bookingdates":{"checkin":"2010-01-12","checkout":"0NaN-aN-aN"},"additionalneeds":"Super"}}
+| PASS |
+------------------------------------------------------------------------------
+Create Booking With CSV using firstname: Loay ,lastname: Mamdouh ,... b'{"bookingid":46,"booking":{"firstname":"Loay","lastname":"Mamdouh","totalprice":245,"depositpaid":true,"bookingdates":{"checkin":"2024-06-16","checkout":"2024-08-01"},"additionalneeds":"Lanuch"}}'
+{"bookingid":46,"booking":{"firstname":"Loay","lastname":"Mamdouh","totalprice":245,"depositpaid":true,"bookingdates":{"checkin":"2024-06-16","checkout":"2024-08-01"},"additionalneeds":"Lanuch"}}
+| PASS |
+------------------------------------------------------------------------------
+Create Booking With CSV using firstname: Ahmed ,lastname: Ali , to... b'{"bookingid":48,"booking":{"firstname":"Ahmed","lastname":"Ali","totalprice":700,"depositpaid":true,"bookingdates":{"checkin":"0NaN-aN-aN","checkout":"0NaN-aN-aN"},"additionalneeds":"true"}}'
+{"bookingid":48,"booking":{"firstname":"Ahmed","lastname":"Ali","totalprice":700,"depositpaid":true,"bookingdates":{"checkin":"0NaN-aN-aN","checkout":"0NaN-aN-aN"},"additionalneeds":"true"}}
+| PASS |
+------------------------------------------------------------------------------
+Suites.DataDrivn RestfulBooking-CSV                                   | PASS |
+3 tests, 3 passed, 0 failed
+==============================================================================
+Suites                                                                | PASS |
+3 tests, 3 passed, 0 failed
+==============================================================================
+Output:  C:\Users\DELL\Documents\Automation\Robot-Framework\Projects\Final-Good practices\RobotFramework\STCS_APITestingUsingRF\Results\pabot_results\2\output.xml
