@@ -1,7 +1,0 @@
-datasources:4e4942c37499e843322e46bda6b41d28c091f8d7
-commandlineoptions:9f8598a690c7367accf83ead504756ddd374acc9
-suitesfrom:no-suites-from-option
-file:d51791653a4d8e918c66f19bc54c0bcb0ec3d9bd
---suite Suites.RestfulBookingSuite
---suite Suites.eSportsSuite
---suite Suites.DataDrivn RestfulBooking-CSV
